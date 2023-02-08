@@ -9,7 +9,7 @@ Square::Square(int s) {
 }
 
 int Square::Area() {
-	int area = pow(this->side, 2);
+	int area = (int)pow(this->side, 2);
 	return area;
 }
 
@@ -24,6 +24,7 @@ int Square::getSide() {
 
 std::ostream& operator << (std::ostream& cout, Square& s) {
 	cout << "Square: The side = " << s.side << " and the area = " << s.Area() << std::endl;
+	return cout;
 }
 
 Square operator +(Square s1, Square s2) {

@@ -31,6 +31,7 @@ int Rectangle::getWidth() {
 
 std::ostream& operator << (std::ostream& cout, Rectangle& r) {
 	cout << "Rectangle: The length = " << r.length << ", the width = " << r.width << " and the area = " << r.Area() << std::endl;
+	return cout;
 }
 
 Rectangle operator +(Rectangle r1, Rectangle r2) {
