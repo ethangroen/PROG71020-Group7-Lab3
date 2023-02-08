@@ -10,7 +10,8 @@
 #include "square.h"
 
 int main(void) {
-	Rectangle r1(2, 5);
+	Rectangle r(2, 5);
+	Square s(7);
 
-	cout << r1;
+	cout << r << s;
 }
