@@ -1,34 +1,35 @@
 // PROG71020 - Lab 3
+// Group 7 - Ethan Groen, YoungSu Chae, Jonathan Ward
 // 2023-02-08
 
-// Group 7 - Ethan Groen, YoungSu Chae, Jonathan Ward
-
-// Rectangle header file
+// rectangle class declaration
 
 #pragma once
 #include <iostream>
 #include <math.h>
 
-using namespace std;
-
 class Rectangle
 {
-private:
+protected:
 	int length;
 	int width;
+
 public:
-	Rectangle();
-	Rectangle(int l, int w);
+    Rectangle();
+	Rectangle(int length, int width);
 
 	int getLength();
 	int getWidth();
-	Rectangle& setSides(int l, int w);
+	
+    // This must be virtual because the implementation is different for the 
+    // derived Square class.  The implementation must differ because otherwise
+    // the caller could make length different from width, which would not 
+    // make sense for a square.  
+    virtual Rectangle& setSides(int length, int width);
 
-	int Area();
+	int area();
 
 	friend Rectangle operator +(Rectangle r1, Rectangle r2);
-
 	friend Rectangle operator *(Rectangle r1, int num);
-
 	friend std::ostream& operator << (std::ostream& cout, Rectangle& r);
 };

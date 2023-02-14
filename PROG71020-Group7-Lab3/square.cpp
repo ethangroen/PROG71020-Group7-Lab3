@@ -1,40 +1,38 @@
+// PROG71020 - Lab 3
+// Group 7 - Ethan Groen, YoungSu Chae, Jonathan Ward
+// 2023-02-08
+
+// square member functions implementation
+
 #include "square.h"
 
-Square::Square() {
-	side = 0;
+Square::Square(int length /* = 0 */) {
+	this->length = length;
+    width = length;
 }
 
-Square::Square(int s) {
-	side = s;
-}
+Square& Square::setSides(int length) {
+	this->length = length;
+    width = length;
 
-int Square::Area() {
-	int area = (int)pow(this->side, 2);
-	return area;
-}
-
-Square& Square::setSide(int s) {
-	this->side = s;
-	return *this;
-}
-
-int Square::getSide() {
-	return this->side;
+    return *this;
 }
 
 std::ostream& operator << (std::ostream& cout, Square& s) {
-	cout << "Square: The side = " << s.side << " and the area = " << s.Area() << std::endl;
+	cout << "Square: The side = " << s.length << " and the area = " << s.area() << std::endl;
 	return cout;
 }
 
 Square operator +(Square s1, Square s2) {
 	Square s;
-	s.side = s1.side + s2.side;
+	s.length = s1.length + s2.length;
+    s.width = s1.width + s2.width;
 	return s;
 }
 
 Square operator *(Square s1, int num) {
 	Square s;
-	s.side = s1.side * num;
+	s.length = s1.length * num;
+    s.width = s1.width * num;
 	return s;
 }
